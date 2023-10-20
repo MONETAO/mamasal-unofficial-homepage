@@ -1,0 +1,704 @@
+body {
+  background: rgb(2, 5, 19);
+  width: 100vw;
+  /*ページ全体の幅は100%と指定する*/
+  text-align: center;
+  /*ページ全体を中央揃えにする*/
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Yu Gothic", YuGothic, sans-serif, serif;
+  position: relative;
+  min-height: 6200px;
+}
+
+body::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+
+  width: 100vw;
+  height: 60px;
+  /* background:  #4d5078; */
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 111;
+}
+
+.header_logo {
+  position: absolute;
+  top: -30px;
+  left: 1.6vw;
+  width: 13vw;
+  opacity: 1;
+  /* 初期の透明度を設定します */
+}
+
+.header_logo:hover {
+  content: url('image/mms_logo_kr.png');
+}
+
+
+
+.aa {
+  position: relative;
+  padding: 0vw 5vw;
+  width: 5vw;
+  text-decoration: none;
+  transition: all 0.3s; /* トランジションを追加してアニメーションをスムーズにします */
+  color: rgb(208, 187, 124);
+  font-family: serif;
+  font-size: 1.3vw;
+}
+
+.aaa {
+  position: relative;
+  padding: 0vw 5vw;
+  width: 5vw;
+  text-decoration: none;
+  transition: all 0.3s; /* トランジションを追加してアニメーションをスムーズにします */
+}
+
+.aa:hover {
+  transform: scale(1.1); /* ホバー時にサイズを1.3倍に拡大 */
+  color: white;
+}
+
+
+
+
+/* nav background image*/
+.deco-mesh-gradation-left {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 44vw;
+  z-index: 5;
+}
+
+.deco-mesh-gradation-right {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 60px;
+  width: 44vw;
+  z-index: 5;
+}
+
+.deco-mesh-left {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .2;
+  height: 60px;
+  width: 40vw;
+}
+
+.deco-mesh-right {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: .2;
+  height: 60px;
+  width: 40vw;
+}
+
+/* メイン */
+.main_ihan {
+  margin-top: 52px;
+  text-align: center;
+  width: 31vw;
+  opacity: 0;
+}
+
+.main_ihan1 {
+  position: absolute;
+  top: 205px;
+  right: 34.5vw;
+  width: 31vw;
+}
+
+.main_ihan2 {
+  position: absolute;
+  top: 114px;
+  right: 34.9vw;
+  width: 8.45vw;
+  z-index: 333;
+}
+
+.fadeIn1 {
+  animation-name: fadeInAnime;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn2 {
+  animation-name: fadeRightAnime;
+  animation-duration: 1.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: 0.35s;
+  /* 1秒遅延 */
+
+}
+
+@keyframes fadeRightAnime {
+  from {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.main_p1 {
+  position: absolute;
+  right: 62.5vw;
+  top: 789px;
+  width: 9vw;
+}
+
+
+.main_p2 {
+  position: absolute;
+  right: 33vw;
+  top: 767px;
+  color: rgb(208, 187, 124);
+  font-size: 20px;
+  font-family: YuMincho, serif;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+
+.wrapper {
+  width: 100vw;
+  min-height: 300vh;
+}
+
+footer {
+  width: 100vw;
+  text-align: center;
+  padding: 30px 0;
+  position: absolute;
+  /*←絶対位置*/
+  bottom: 0;
+  /*下に固定*/
+}
+
+.bggold img {
+  width: 43%;
+  position: absolute;
+  z-index: 999;
+}
+
+.bggold1 {
+  top: 47px;
+  left: 0vw;
+}
+
+.bggold2 {
+  top: 47px;
+  right: 0vw;
+}
+
+.scroll_theme_bou {
+  margin-top: 246px;
+  width: 0.3vw;
+  text-align: center;
+
+}
+
+.scroll_theme {
+  /* background-color: pink; */
+  position: absolute;
+  top: 1030px;
+  width: 100vw;
+  height: 390px;
+  z-index: -1;
+}
+
+.scroll_theme_malumo {
+  position: absolute;
+  top: -1px;
+  right: 48.52vw;
+  width: 3vw;
+}
+
+.einrogard_waku {
+  position: absolute;
+  top: 100px;
+  right: 33.36vw;
+  width: 33vw;
+}
+
+.einrogard_title {
+  position: absolute;
+  top: 124px;
+  right: 34.5vw;
+  width: 30vw;
+}
+
+.scrolle_theme_title {
+  /* background-color: pink; */
+  position: absolute;
+  top: 1420px;
+  width: 100vw;
+  height: 116px;
+  z-index: -4;
+}
+
+
+/* video */
+.mamasal_video_tool img {
+  width: 59.7vw;
+  height: 584px;
+  top: -96px;
+  right: 20.1vw;
+  position: absolute;
+  z-index: -1;
+}
+
+.mamasal_video {
+  margin-top: 347px;
+  text-align: center;
+}
+
+.mamasal_video iframe {
+  width: 47.5vw;
+  height: 393px;
+}
+
+/* EINROGARD_YOSO */
+.einrogard_logo {
+  position: absolute;
+  top: 2243px;
+  left: 16vw;
+  width: 26vw;
+  cursor: pointer;
+  transition: transform 0.3s;
+  /* アニメーションを追加 */
+
+  /* ホバー時のスタイル設定 */
+  &:hover {
+    transform: scale(1.05);
+    /* 拡大倍率を調整（1.2倍に拡大） */
+  }
+}
+
+.einrogard_p1 {
+  position: absolute;
+  top: 2292px;
+  right: 14vw;
+  width: 40vw;
+}
+
+.einrogard_p2waku {
+  position: absolute;
+  top: 2444px;
+  right: 52.38vw;
+  width: 1.4vw;
+}
+
+.einrogard_p2 {
+  position: absolute;
+  top: 2397px;
+  right: 15.3vw;
+  width: 41vw;
+}
+
+/* character */
+.character_scroll_theme_bou {
+  margin-top: 510px;
+  width: 0.3vw;
+  text-align: center;
+
+}
+
+.character_scroll_theme {
+  /* background-color: pink; */
+  position: absolute;
+  top: 2668px;
+  width: 100vw;
+  height: 390px;
+  z-index: -1;
+}
+
+.character_scroll_theme_malumo {
+  position: absolute;
+  top: -1px;
+  right: 48.52vw;
+  width: 3vw;
+}
+
+.character_waku {
+  position: absolute;
+  top: 82px;
+  right: 33.36vw;
+  width: 33vw;
+}
+
+.character_title {
+  position: absolute;
+  top: 112px;
+  right: 34.5vw;
+  width: 30vw;
+}
+
+.character_scrolle_theme_title {
+  /* background-color: pink; */
+  position: absolute;
+  top: 3060px;
+  width: 100vw;
+  height: 116px;
+  z-index: -4;
+}
+
+/* --- */
+.character_einrogard {
+  position: absolute;
+  top: 3324px;
+  right: 40.5vw;
+  width: 19vw;
+}
+
+.character_bd {
+  position: absolute;
+  top: 3595px;
+  right: 72vw;
+  width: 19vw;
+}
+
+.character_wt {
+  position: absolute;
+  top: 3595px;
+  right: 51vw;
+  width: 19vw;
+}
+
+.character_rb {
+  position: absolute;
+  top: 3595px;
+  right: 30vw;
+  width: 19vw;
+}
+
+.character_bt {
+  position: absolute;
+  top: 3595px;
+  right: 9vw;
+  width: 19vw;
+}
+
+/* magic */
+.magic_scroll_theme_bou {
+  margin-top: 807px;
+  width: 0.3vw;
+  text-align: center;
+
+}
+
+.magic_scroll_theme {
+  /* background-color: pink; */
+  position: absolute;
+  top: 3843px;
+  width: 100vw;
+  height: 390px;
+  z-index: -1;
+}
+
+.magic_scroll_theme_malumo {
+  position: absolute;
+  top: -1px;
+  right: 48.52vw;
+  width: 3vw;
+}
+
+.magic_waku {
+  position: absolute;
+  top: 153.6px;
+  right: 33.49vw;
+  width: 32.8vw;
+}
+
+.magic_title {
+  position: absolute;
+  top: 167px;
+  right: 40.9vw;
+  width: 17vw;
+}
+
+.magic_scrolle_theme_title {
+  /* background-color: pink; */
+  position: absolute;
+  top: 4187px;
+  width: 100vw;
+  height: 116px;
+  z-index: -4;
+}
+
+/* --- */
+.magic_name {
+  margin-top: 443px;
+  text-align: center;
+  width: 70vw;
+}
+
+.magic1 {
+  position: absolute;
+  top: 4512px;
+  right: 68.87vw;
+  height: 14vw;
+}
+
+.magic2 {
+  position: absolute;
+  top: 4512px;
+  right: 51.37vw;
+  height: 14vw;
+}
+
+.magic3 {
+  position: absolute;
+  top: 4512px;
+  right: 33.9vw;
+  height: 14vw;
+}
+
+.magic4 {
+  position: absolute;
+  top: 4512px;
+  right: 16.5vw;
+  height: 14vw;
+}
+
+.magic5 {
+  position: absolute;
+  top: 4857px;
+  right: 68.87vw;
+  height: 14vw;
+}
+
+.magic6 {
+  position: absolute;
+  top: 4857px;
+  right: 51.37vw;
+  height: 14vw;
+}
+
+.magic7 {
+  position: absolute;
+  top: 4857px;
+  right: 33.9vw;
+  height: 14vw;
+}
+
+.magic8 {
+  position: absolute;
+  top: 4857px;
+  right: 16.5vw;
+  height: 14vw;
+}
+
+/* sns */
+.sns_scroll_theme_bou1 {
+  position: absolute;
+  top: 5130px;
+  right: 17.36vw;
+  width: 0.33vw;
+  height: 350px;
+}
+
+.sns_scroll_theme_bou2 {
+  position: absolute;
+  top: 5130px;
+  right: 38.65vw;
+  width: 0.33vw;
+  height: 350px;
+
+}
+
+.sns_scroll_theme_bou3 {
+  position: absolute;
+  top: 5130px;
+  right: 60.6vw;
+  width: 0.33vw;
+  height: 350px;
+
+}
+
+.sns_scroll_theme_bou4 {
+  position: absolute;
+  top: 5130px;
+  right: 81.9vw;
+  width: 0.33vw;
+  height: 350px;
+
+}
+
+
+
+
+.sns_scroll_theme {
+  /* background-color: pink; */
+  position: absolute;
+  top: 5173px;
+  width: 100vw;
+  height: 390px;
+  z-index: -1;
+}
+
+.malumo1 {
+  position: absolute;
+  top: -1px;
+  left: 16.96vw;
+  width: 1.8vw;
+}
+
+.malumo2 {
+  position: absolute;
+  top: 69px;
+  left: 37.63vw;
+  width: 3.1vw;
+}
+
+.malumo3 {
+  position: absolute;
+  top: 69px;
+  left: 59.68vw;
+  width: 2.95vw;
+}
+
+.malumo4 {
+  position: absolute;
+  top: -1px;
+  left: 81.57vw;
+  width: 1.8vw;
+}
+
+
+
+
+.sns_waku {
+  position: absolute;
+  top: 161px;
+  right: 17.36vw;
+  width: 65vw;
+}
+
+.sns_title1 {
+  position: absolute;
+  top: 155px;
+  left: 19.9vw;
+  width: 17vw;
+}
+
+.sns_title2 {
+  position: absolute;
+  top: 155px;
+  left: 41.9vw;
+  width: 17vw;
+}
+
+.sns_title3 {
+  position: absolute;
+  top: 155px;
+  left: 63.56vw;
+  width: 17vw;
+}
+
+.sns_icon1 {
+  position: absolute;
+  top: 282px;
+  left: 25.5vw;
+  width: 5.5vw;
+  cursor: pointer;
+}
+
+.sns_icon1:hover {
+  content: url('image/sns_kakao_black.png');
+}
+
+.sns_icon1:active {
+  /* クリック時に画像が切り替わる */
+  content: url('image/sns_kakao_black.png');
+}
+
+.sns_icon2 {
+  position: absolute;
+  top: 282px;
+  left: 47.8vw;
+  width: 5.5vw;
+  cursor: pointer;
+}
+
+.sns_icon2:hover {
+  content: url('image/sns_kakao_white.png');
+}
+
+.sns_icon2:active {
+  /* クリック時に画像が切り替わる */
+  content: url('image/sns_kakao_white.png');
+}
+
+.sns_icon3 {
+  position: absolute;
+  top: 282px;
+  left: 69.6vw;
+  width: 5.5vw;
+  cursor: pointer;
+}
+
+.sns_icon3:hover {
+  content: url('image/sns_piccoma_black.png');
+}
+
+.sns_icon3:active {
+  /* クリック時に画像が切り替わる */
+  content: url('image/sns_piccoma_black.png');
+}
+
+.sns_scrolle_theme_title {
+  /* background-color: pink; */
+  position: absolute;
+  top: 5571px;
+  width: 100vw;
+  height: 116px;
+}
+
+/* FOOTER */
+.bggold3 {
+  bottom: 0;
+  right: 0vw;
+}
+
+.bggold4 {
+  bottom: 0;
+  left: 0vw;
+}
