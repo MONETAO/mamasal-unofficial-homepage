@@ -298,19 +298,26 @@ footer {
 /* EINROGARD_YOSO */
 .einrogard_logo {
   position: absolute;
+  top: 2285px;
+  left: 18.9vw;
+  width: 20vw;
+  cursor: pointer;
+}
+
+
+ .einrogard_logo2{
+  position: absolute;
   top: 2243px;
   left: 16vw;
   width: 26vw;
-  cursor: pointer;
-  transition: transform 0.3s;
-  /* アニメーションを追加 */
+ }
 
-  /* ホバー時のスタイル設定 */
-  &:hover {
-    transform: scale(1.05);
-    /* 拡大倍率を調整（1.2倍に拡大） */
-  }
-}
+ .einrogard_logo3{
+  position: absolute;
+  top: 2305px;
+  left: 20vw;
+  width: 18vw;
+ }
 
 .einrogard_p1 {
   position: absolute;
