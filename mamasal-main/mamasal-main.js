@@ -610,3 +610,25 @@ gsap.to(".magic8", {
     },
 });
 
+
+// ホバー要素
+const hoverElement = document.querySelector('.einrogard_logo');
+// 回転対象要素
+const rotatingElement2 = document.querySelector('.einrogard_logo2');
+const rotatingElement3 = document.querySelector('.einrogard_logo3');
+
+let hoverTimeline2, hoverTimeline3;
+
+hoverTimeline2 = gsap.to(rotatingElement2, { rotation: -360, duration: 6, repeat: -1, ease: 'linear', paused: true });
+hoverTimeline3 = gsap.to(rotatingElement3, { rotation: 360, duration: 6, repeat: -1, ease: 'linear', paused: true });
+
+hoverElement.addEventListener('mouseover', () => {
+  hoverTimeline2.play();
+  hoverTimeline3.play();
+});
+
+hoverElement.addEventListener('mouseout', () => {
+  // 逆再生の速度を遅くするためにキーフレームを調整
+  hoverTimeline2.reverse();
+  hoverTimeline3.reverse();
+});
