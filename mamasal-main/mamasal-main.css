@@ -696,9 +696,15 @@ footer {
 .bggold3 {
   bottom: 0;
   right: 0vw;
+    z-index: -4;
+  width: 43%;
+  position: absolute;
 }
 
 .bggold4 {
   bottom: 0;
   left: 0vw;
+    z-index: -4;
+  width: 43%;
+  position: absolute;
 }
