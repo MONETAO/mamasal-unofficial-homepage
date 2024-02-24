@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- ========== META & TITLE ========== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="魔法学校で魔法使いとして生きる方法unofficial homepage" />
+    <meta property="og:url" content="ページURL" />
+    <meta property="og:site_name" content="魔法学校で魔法使いとして生きる方法unofficial homepage" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="魔法学校で魔法使いとして生きる方法unofficial homepage" />
+    <meta property="og:description" content="魔法学校で魔法使いとして生きる方法unofficial homepage" />
+    <meta property="og:image" content="image/einrogardlogo.png" />
+    <title>mamasal mainpage_responsible</title>
+    <!-- ========== responsible ========== -->
+    <meta name=”viewport” content=”width=device-width,initial-scale=1.0″>
+    <!-- ========== CSS ========== -->
+    <link rel="stylesheet" href="mamasal_main_responsible.css">
+    <!-- ========== GSAP ========== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- ========== ファビコン ========== -->
+    <link rel="icon" href="image/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="image/favicon/apple-touch-icon.png" sizes="180x180">
+    <!-- mouse animation -->
+    <script type="text/javascript">
+        // <![CDATA[
+        var colour="random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+        var sparkles=60;
+        
+        /****************************
+        *  Tinkerbell Magic Sparkle *
+        *(c)2005-13 mf2fm web-design*
+        *  http://www.mf2fm.com/rv  *
+        * DON'T EDIT BELOW THIS BOX *
+        ****************************/
+        var x=ox=400;
+        var y=oy=300;
+        var swide=800;
+        var shigh=600;
+        var sleft=sdown=0;
+        var tiny=new Array();
+        var star=new Array();
+        var starv=new Array();
+        var starx=new Array();
+        var stary=new Array();
+        var tinyx=new Array();
+        var tinyy=new Array();
+        var tinyv=new Array();
+        
+        window.onload=function() { if (document.getElementById) {
+          var i, rats, rlef, rdow;
+          for (var i=0; i<sparkles; i++) {
+            var rats=createDiv(7, 7);
+            rats.style.visibility="hidden";
+            rats.style.zIndex="999";
+            document.body.appendChild(tiny[i]=rats);
+            starv[i]=0;
+            tinyv[i]=0;
+            var rats=createDiv(5, 5);
+            rats.style.backgroundColor="transparent";
+            rats.style.visibility="hidden";
+            rats.style.zIndex="999";
+            var rlef=createDiv(1, 5);
+            var rdow=createDiv(5, 1);
+            rats.appendChild(rlef);
+            rats.appendChild(rdow);
+            rlef.style.top="2px";
+            rlef.style.left="0px";
+            rdow.style.top="0px";
+            rdow.style.left="2px";
+            document.body.appendChild(star[i]=rats);
+          }
+          set_width();
+          sparkle();
+        }}
+        
+        function sparkle() {
+          var c;
+          if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+            ox=x;
+            oy=y;
+            for (c=0; c<sparkles; c++) if (!starv[c]) {
+              star[c].style.left=(starx[c]=x)+"px";
+              star[c].style.top=(stary[c]=y+1)+"px";
+              star[c].style.clip="rect(0px, 7px, 7px, 0px)";
+              star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+              star[c].style.visibility="visible";
+              starv[c]=50;
+              break;
+            }
+          }
+          for (c=0; c<sparkles; c++) {
+            if (starv[c]) update_star(c);
+            if (tinyv[c]) update_tiny(c);
+          }
+          setTimeout("sparkle()", 50);
+        }
+        
+        function update_star(i) {
+          if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+          if (starv[i]) {
+            stary[i]+=1+Math.random()*3;
+            starx[i]+=(i%5-2)/5;
+            if (stary[i]<shigh+sdown) {
+              star[i].style.top=stary[i]+"px";
+              star[i].style.left=starx[i]+"px";
+            }
+            else {
+              star[i].style.visibility="hidden";
+              starv[i]=0;
+              return;
+            }
+          }
+          else {
+            tinyv[i]=50;
+            tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+            tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+            tiny[i].style.width="2px";
+            tiny[i].style.height="2px";
+            tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
+            star[i].style.visibility="hidden";
+            tiny[i].style.visibility="visible"
+          }
+        }
+        
+        function update_tiny(i) {
+          if (--tinyv[i]==25) {
+            tiny[i].style.width="1px";
+            tiny[i].style.height="1px";
+          }
+          if (tinyv[i]) {
+            tinyy[i]+=1+Math.random()*3;
+            tinyx[i]+=(i%5-2)/5;
+            if (tinyy[i]<shigh+sdown) {
+              tiny[i].style.top=tinyy[i]+"px";
+              tiny[i].style.left=tinyx[i]+"px";
+            }
+            else {
+              tiny[i].style.visibility="hidden";
+              tinyv[i]=0;
+              return;
+            }
+          }
+          else tiny[i].style.visibility="hidden";
+        }
+        
+        document.onmousemove=mouse;
+        function mouse(e) {
+          if (e) {
+            y=e.pageY;
+            x=e.pageX;
+          }
+          else {
+            set_scroll();
+            y=event.y+sdown;
+            x=event.x+sleft;
+          }
+        }
+        
+        window.onscroll=set_scroll;
+        function set_scroll() {
+          if (typeof(self.pageYOffset)=='number') {
+            sdown=self.pageYOffset;
+            sleft=self.pageXOffset;
+          }
+          else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+            sdown=document.body.scrollTop;
+            sleft=document.body.scrollLeft;
+          }
+          else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+            sleft=document.documentElement.scrollLeft;
+            sdown=document.documentElement.scrollTop;
+          }
+          else {
+            sdown=0;
+            sleft=0;
+          }
+        }
+        
+        window.onresize=set_width;
+        function set_width() {
+          var sw_min=999999;
+          var sh_min=999999;
+          if (document.documentElement && document.documentElement.clientWidth) {
+            if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+            if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+          }
+          if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+            if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+            if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+          }
+          if (document.body.clientWidth) {
+            if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+            if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+          }
+          if (sw_min==999999 || sh_min==999999) {
+            sw_min=800;
+            sh_min=600;
+          }
+          swide=sw_min;
+          shigh=sh_min;
+        }
+        
+        function createDiv(height, width) {
+          var div=document.createElement("div");
+          div.style.position="absolute";
+          div.style.height=height+"px";
+          div.style.width=width+"px";
+          div.style.overflow="hidden";
+          return (div);
+        }
+        
+function newColour() {
+  var shades = [
+    "rgb(166, 124, 0)",   // 金色1
+    "rgb(191, 155, 48)",   // 金色2
+    "rgb(255, 191, 0)",   // 金色3
+    "rgb(255, 207, 64)",  // 金色4
+    "rgb(255, 220, 115)"   // 金色5
+  ];
+  var randomIndex = Math.floor(Math.random() * shades.length);
+  return shades[randomIndex];
+}
+
+        // ]]>
+        </script>
+   <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+   <script>
+   $(function() {
+      const hum = $('#hamburger, .close')
+      const nav = $('.sp-nav')
+      hum.on('click', function(){
+         nav.toggleClass('toggle');
+      });
+   });
+   </script>
+
+    <script>
+        function redirectToNewPage() {
+            window.location.href = "https://MONETAO.github.io/mamasal/mamasal-test/mamasal-test.html";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="warapper">
+        <div class="nav">
+            <div class="nav-pc">
+            <div>
+                <img class="deco-mesh-gradation-left" src="image/nav_backgroundgradation_left.png" alt="">
+                <img class="deco-mesh-gradation-right" src="image/nav_backgroundgradation_right.png" alt="">
+                <img class="deco-mesh-left" src="image/nav_background_left.png" alt="">
+                <img class="deco-mesh-right" src="image/nav_background_right.png" alt="">
+            </div>
+            <nav>
+                <a class="aa" href="kr/mamasal-einrogard/mamasal_einrogard.html">Einrogard</a>
+                <a class="aa" href="kr/mamasal-einrogard/mamasal_einrogard.html">Character</a>
+                <a class="aaa"
+                    href="https://monetao.github.io/mamasal-unofficial-homepage/mamasal-main/mamasal-main.html">
+                    <div class="btn">
+                        <img class="header_logo" src="image/einrogardlogo.png" alt="">
+                    </div>
+                </a>
+                <a class="aa" href="kr/mamasal-einrogard/mamasal_einrogard.html">Magic</a>
+                <a class="aa" href="kr/mamasal-einrogard/mamasal_einrogard.html">SNS</a>
+            </nav>
+        </div>
+            <nav class="sp-nav">
+                <ul>
+                   <li><a href="#">Einrogard</a></li>
+                   <li><a href="#">Character</a></li>
+                   <li><a href="#">Magic</a></li>
+                   <li><a href="#">SNS</a></li>
+                   <li class="close"><span>閉じる</span></li>
+                </ul>
+              </nav>
+              <div id="hamburger">
+                <span></span>
+             </div>            
+        </div>
+
+        <div class="bggold">
+            <img class="bggold1" src="image/bggold1.png" alt="">
+            <img class="bggold2" src="image/bggold2.png" alt="">
+        </div>
+        <a href="#" id="topButton"><img id="up-icon" class="up-icon" src="image/up-icon.png" alt=""></a>
+
+        <!-- main -->
+        <div class="main">
+            <img class="main_ihan1 fadeIn1" src="image/main_ihan1.png" alt="">
+            <img class="main_ihan2 fadeIn2" src="image/main_ihan2.png" alt="">
+            <img class="main_p1 fadeIn1" src="image/main_img2.png" alt="">
+            <div class="main_p2_scroll">
+                <img class="main_p2" src="image/main_p2.png"></img>
+            </div>
+        </div>
+
+        <!-- einrogard -->
+        <div class="scroll_malumo">
+            <img class="malumo" src="image/malumo_gold.png" alt="">
+        </div>
+        <div class="scroll_bou">
+            <img class="bou" src="image/bou_gold.png" alt="">
+        </div>
+        <div class="title">
+            <img class="einrogard_title" src="image/einrogard_waku.png" alt="">
+        </div>
+        <!-- --- -->
+        <div class="einrogard_video_tool huwato-einrogard-video">
+            <img class="video_tool" src="image/videogold.png" alt="">
+        </div>
+        <iframe class="video_einrogard huwato-einrogard-video" 
+            src="https://www.youtube.com/embed/RRgidzNOedk?si=5uOMMPwKFq9EG9g_&amp;controls=0"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        <div class="einrogard_setsumei">
+            <img class="einrogard_logo2 huwato" src="image/einrogard_img2.png" alt="">
+            <img class="einrogard_logo3 huwato" src="image/einrogard_img3.png" alt="">
+            <img class="einrogard_logo huwato" src="image/einrogard_img1.png" alt="" onclick="redirectToNewPage()">
+            <img class="einrogard_p1 huwato" src="image/einrogard_p1.png" alt="">
+            <img class="einrogard_p2waku huwato" src="image/einrogard_p2waku.png" alt="">
+            <img class="einrogard_p2 yokoslide" src="image/einrogard_p2.png" alt="">
+        </div>
+
+        <!-- CHARACTER -->
+        <div class="scroll_malumo">
+            <img class="malumo character_malumo" src="image/malumo_gold.png" alt="">
+        </div>
+        <div class="scroll_bou">
+            <img class="bou character_bou" src="image/bou_gold.png" alt="">
+        </div>
+        <div class="title">
+            <img class="character_title" src="image/character_waku.png" alt="">
+        </div>
+        <!-- --- -->
+        <div>
+            <img class="character_einrogard huwato-character1" src="image/character_einrogard.png" alt="">
+        </div>
+            <div class="character">
+                <img class="huwato-character2" src="image/character_bd.png" alt="">
+                <img class="huwato-character3" src="image/character_wt.png" alt="">
+                <img class="huwato-character4" src="image/character_rb.png" alt="">
+                <img class="huwato-character5" src="image/character_bt.png" alt="">
+        </div>
+
+        <!-- magic -->
+        <div class="scroll_malumo">
+            <img class="malumo magic_malumo" src="image/malumo_gold.png" alt="">
+        </div>
+        <div class="scroll_bou">
+            <img class="bou magic_bou" src="image/bou_gold.png" alt="">
+        </div>
+        <div class="title">
+            <img class="magic_title" src="image/magic_waku.png" alt="">
+        </div>
+        <!-- --- -->
+<div class="magic_icon">
+    <img class="magic1 m1" src="image/magic1.png" alt="">
+    <img class="magic2 m2" src="image/magic2.png" alt="">
+    <img class="magic3 m3" src="image/magic3.png" alt="">
+    <img class="magic4 m4" src="image/magic4.png" alt="">
+  </div>
+<div class="magic_icon magic_icon2">
+    <img class="magic5 m5" src="image/magic5.png" alt="">
+    <img class="magic6 m6" src="image/magic6.png" alt="">
+    <img class="magic7 m7" src="image/magic7.png" alt="">
+    <img class="magic8 m8" src="image/magic8.png" alt="">
+</div>
+<div>    
+    <img class="magic_name" src="image/magic_name.png" alt="">
+  </div>
+<div>
+  <img class="malumo_magic_iphone" src="image/malumo_magic.png" alt="">
+</div>
+  <div class="magic_name_for_iphone">
+    <img class="name1 m1" src="image/name1.png" alt="">
+    <img class="name2 m2" src="image/name2.png" alt="">
+    <img class="name3 m3" src="image/name3.png" alt="">
+    <img class="name4 m4" src="image/name4.png" alt="">
+    <img class="name5 m5" src="image/name5.png" alt="">
+    <img class="name6 m6" src="image/name6.png" alt="">
+    <img class="name7 m7" src="image/name7.png" alt="">
+    <img class="name8 m8" src="image/name8.png" alt="">
+  </div>
+  <div class="magic_name_bou_for_iphone">
+    <img class="bou_magic_iphone" src="image/bou_magic.png" alt="">
+  </div>
+
+  <!-- SNS -->
+  <div class="SNS_malumo">
+    <img class="malumo1" src="image/sns_malumo_S.png" alt="">
+    <img class="malumo2" src="image/sns_malumo_L.png" alt="">
+    <img class="malumo3" src="image/sns_malumo_L.png" alt="">
+    <img class="malumo4" src="image/sns_malumo_S.png" alt="">
+</div>
+
+  <div>
+    <img class="sns_scroll_theme_bou1 bou" src="image/bou_gold.png" alt="">
+    <img class="sns_scroll_theme_bou2 bou" src="image/bou_gold.png" alt="">
+    <img class="sns_scroll_theme_bou3 bou" src="image/bou_gold.png" alt="">
+    <img class="sns_scroll_theme_bou4 bou" src="image/bou_gold.png" alt="">
+  </div>
+
+<div class="SNS_bou">
+    <img class="sns_bou sns_hobber" src="image/sns_bou.png" alt="">
+</div>
+
+<div class="sns_scrolle_theme_title sns_hobber">
+    <a href="https://page.kakao.com/content/57668776" target="_blank">
+      <img class="sns_icon1 sns_animation" src="image/sns_kakao_white.png" alt="Kakao">
+    </a>
+    <a href="https://page.kakao.com/content/60701535" target="_blank">
+      <img class="sns_icon2 sns_animation" src="image/sns_kakao_black.png" alt="Kakao">
+    </a>
+    <a href="https://piccoma.com/web/product/132854" target="_blank">
+      <img class="sns_icon3 sns_animation" src="image/sns_piccoma_white.png" alt="Kakao">
+    </a>
+  </div>
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div >
+          <img class="bggold3" src="image/bggold3.png" alt="">
+          <img class="bggold4" src="image/bggold4.png" alt="">
+        </div>
+      </footer>
+    </div>
+    <div class="js">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="practice.js"></script> 
+        <script src="mamasal_main_responsible.js"></script>
+    </div>
+</body>
+
+</html>
